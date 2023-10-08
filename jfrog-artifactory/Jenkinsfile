@@ -1,4 +1,5 @@
 node {
+    sh 'java --version'
     def server = Artifactory.server('multiplica.jfrog.io')
     def rtGradle = Artifactory.newGradleBuild()
     def buildInfo = Artifactory.newBuildInfo()
@@ -18,11 +19,6 @@ node {
 
         stage('Configuraciones extra de gradle') {
             rtGradle.usesPlugin = true // El plugin ya está definifo en el build script
-        }
-        stage('Java') {
-            steps {
-                sh 'java -version'
-            }
         }
         stage('Ejecutar Gradle') {
             rtGradle.run rootDir: "artifactory/", tasks: 'clean artifactoryPublish', buildInfo: buildInfo
