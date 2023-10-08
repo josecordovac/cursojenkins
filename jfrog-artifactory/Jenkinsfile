@@ -1,4 +1,6 @@
 node {
+    jdk = tool.name: 'jdk11'
+    env.JAVA_HOME = "${jdk}"
     sh 'java --version'
     def server = Artifactory.server('multiplica.jfrog.io')
     def rtGradle = Artifactory.newGradleBuild()
