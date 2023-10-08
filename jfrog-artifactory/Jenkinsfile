@@ -7,7 +7,7 @@ node {
         git branch: 'main', url: 'https://github.com/josecordovac/gs-gradle-v2.git'
 
     stage 'Configuracion Artifactory'
-        rtGradle.tool = 'gradle' // Como le asignamos al nombre de la herramienta en Jenkins en configuración
+        rtGradle.tool = 'gradle1' // Como le asignamos al nombre de la herramienta en Jenkins en configuración
         rtGradle.deployer repo:'default-gradle-dev-local',  server: server
         rtGradle.resolver repo:'default-gradle-dev', server: server
 
